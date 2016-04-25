@@ -2,7 +2,7 @@
 
 # Lock
 [![NPM version][npm-image]][npm-url]
-[![Build status][strider-image]][strider-url]
+[![Build status][travis-image]][travis-url]
 [![Test coverage][coveralls-image]][coveralls-url]
 [![Dependency Status][david-image]][david-url]
 [![License][license-image]][license-url]
@@ -72,7 +72,7 @@ If you are using browserify to build your project, you will need to add the foll
 
 ## Usage
 
-You can use **Auth0Lock** with [Popup mode][popup-mode] or [Redirect mode][redirect-mode]. To learn more about these modes, you can read the [Authentication Modes][authentication-modes] page. 
+You can use **Auth0Lock** with [Popup mode][popup-mode] or [Redirect mode][redirect-mode]. To learn more about these modes, you can read the [Authentication Modes][authentication-modes] page.
 There are different ways of implementing them according to your application needs. To see what kind of settings you should be using you can check the [Types of Applications article][application-types].
 
 ```js
@@ -285,8 +285,8 @@ If you have found a bug or if you have a feature request, please report them at 
 
 [npm-image]: https://img.shields.io/npm/v/auth0-lock.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/auth0-lock
-[strider-image]: https://ci.auth0.com/auth0/lock/badge
-[strider-url]: https://ci.auth0.com/auth0/lock
+[travis-image]: https://travis-ci.org/auth0/lock.svg?branch=v6
+[travis-url]: https://travis-ci.org/auth0/lock
 [coveralls-image]: https://img.shields.io/coveralls/auth0/lock.svg?style=flat-square
 [coveralls-url]: https://coveralls.io/r/auth0/lock?branch=master
 [david-image]: http://img.shields.io/david/auth0/lock.svg?style=flat-square

@@ -313,4 +313,8 @@ module.exports = function (grunt) {
   grunt.registerTask('purge_cdn',     ['http:purge_js', 'http:purge_js_min', 'http:purge_major_js', 'http:purge_major_js_min', 'http:purge_minor_js', 'http:purge_minor_js_min']);
 
   grunt.registerTask('cdn',           ['build', 'copy:release', 'aws_s3:clean', 'aws_s3:publish', 'purge_cdn']);
+
+  grunt.registerTask('ci', function() {
+    grunt.task.run(process.env.SAUCE_USERNAME ? 'integration' : 'phantom');
+  });
 };

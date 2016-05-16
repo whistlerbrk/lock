@@ -77,6 +77,7 @@ export default class Chrome extends React.Component {
       contentProps,
       disableSubmitButton,
       error,
+      headerless,
       isSubmitting,
       logo,
       primaryColor,
@@ -99,6 +100,17 @@ export default class Chrome extends React.Component {
       name = "";
     }
 
+    const header = headerless
+      ? null
+      :  <Header
+           backHandler={backHandler && ::this.handleBack}
+           backgroundColor={primaryColor}
+           backgroundUrl={backgroundUrl}
+           logoUrl={logo}
+           name={name}
+           title={title}
+         />;
+
     const submitButton = showSubmitButton
       && !delayingShowSubmitButton
       && <SubmitButton
@@ -119,7 +131,7 @@ export default class Chrome extends React.Component {
 
     return (
       <div className="auth0-lock-cred-pane">
-        <Header title={title} name={name} backHandler={backHandler && ::this.handleBack} backgroundUrl={backgroundUrl} backgroundColor={primaryColor} logoUrl={logo}/>
+        {header}
         <ReactTransitionGroup>
           {globalSuccess}
           {globalError}
@@ -183,6 +195,7 @@ Chrome.propTypes = {
   contentProps: React.PropTypes.object.isRequired,
   disableSubmitButton: React.PropTypes.bool.isRequired,
   error: React.PropTypes.string,
+  headerless: React.PropTypes.bool.isRequired,
   isSubmitting: React.PropTypes.bool.isRequired,
   logo: React.PropTypes.string.isRequired,
   primaryColor: React.PropTypes.string.isRequired,
@@ -195,6 +208,7 @@ Chrome.propTypes = {
 
 Chrome.defaultProps = {
   disableSubmitButton: false,
+  headerless: false,
   showSubmitButton: true
 };
 

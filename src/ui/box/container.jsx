@@ -93,6 +93,7 @@ export default class Container extends React.Component {
       disableSubmitButton,
       disallowClose,
       error,
+      headerless,
       isMobile, // TODO: not documented and should be removed (let the design team know first)
       isModal,
       isSubmitting,
@@ -139,6 +140,10 @@ export default class Container extends React.Component {
       className += " auth0-lock-with-terms";
     }
 
+    // if (headerless) {
+    //   className += " auth0-lock-headerless";
+    // }
+
     // TODO: this no longer makes sense, instead of taking a tabs
     // prop we should take extra class names.
     if (tabs) {
@@ -161,6 +166,7 @@ export default class Container extends React.Component {
                 contentProps={contentProps}
                 disableSubmitButton={disableSubmitButton}
                 error={error}
+                headerless={headerless && !isModal}
                 isSubmitting={isSubmitting}
                 logo={logo}
                 screenName={screenName}
@@ -192,6 +198,7 @@ Container.propTypes = {
   contentProps: React.PropTypes.object.isRequired,
   disableSubmitButton: React.PropTypes.bool.isRequired,
   error: React.PropTypes.string,
+  headerless: React.PropTypes.bool.isRequired,
   isMobile: React.PropTypes.bool.isRequired,
   isModal: React.PropTypes.bool.isRequired,
   isSubmitting: React.PropTypes.bool.isRequired,
@@ -216,6 +223,7 @@ export const defaultProps = Container.defaultProps = {
   badgeLink: "https://auth0.com/",
   contentProps: {},
   disableSubmitButton: false,
+  headerless: false,
   isMobile: false,
   isSubmitting: false,
   logo: `${isFileProtocol ? "https:" : ""}//cdn.auth0.com/styleguide/1.0.0/img/badge.png`,

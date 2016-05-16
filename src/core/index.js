@@ -101,6 +101,7 @@ function extractUIOptions(id, modeName, options) {
     && options.avatar;
   const avatarProvider = customAvatarProvider || gp;
 
+  // TODO: add warning about chromeless ignored if not in container
   return new Map({
     containerID: options.container || `auth0-lock-container-${id}`,
     appendContainer: !options.container,
@@ -110,6 +111,7 @@ function extractUIOptions(id, modeName, options) {
     avatarProvider: avatarProvider,
     logo: typeof logo === "string" ? logo : undefined,
     closable: closable,
+    chromeless: undefined === options.chromeless ? false : !!(options.container || options.chromeless),
     dict: d.buildDict(modeName, typeof options.languageDictionary === "object" ? options.languageDictionary : {}),
     disableWarnings: options.disableWarnings === undefined ? false : !!options.disableWarnings,
     mobile: undefined === options.mobile ? false : !!options.mobile,
@@ -128,6 +130,7 @@ export const ui = {
   autofocus: lock => getUIAttribute(lock, "autofocus"),
   avatar: lock => getUIAttribute(lock, "avatar"),
   avatarProvider: lock => getUIAttribute(lock, "avatarProvider"),
+  chromeless: lock => getUIAttribute(lock, "chromeless"),
   closable: lock => getUIAttribute(lock, "closable"),
   dict: lock => getUIAttribute(lock, "dict"),
   disableWarnings: lock => getUIAttribute(lock, "disableWarnings"),

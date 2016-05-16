@@ -23,10 +23,12 @@ function syncClientSettings(id, cb) {
 
   function updateFn(m, result) {
     result = Immutable.fromJS(result);
-    m = m.setIn(
-      ["core", "connections"],
-      pickConnections(result, l.allowedConnections(m))
-    );
+    let connections = pickConnections(result, l.allowedConnections(m));
+    if (l.ui.chromeless(m)) {
+      connections = connections.filter((v, k) => ["social", "unknown"].indexOf(k) !== -1);
+    }
+    // TODO: assignment should be a fn in core
+    m = m.setIn(["core", "connections"], connections);
     setTimeout(() => {
       l.runHook(read(getEntity, "lock", id), "didReceiveClientSettings");
       cb(result);

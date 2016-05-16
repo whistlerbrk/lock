@@ -88,6 +88,7 @@ export default class Base extends EventEmitter {
             contentProps: {model: m, t},
             disableSubmitButton: disableSubmitButton,
             error: l.globalError(m),
+            headerless: l.ui.chromeless(m),
             isMobile: l.ui.mobile(m),
             isModal: l.ui.appendContainer(m),
             isSubmitting: l.submitting(m),

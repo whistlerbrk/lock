@@ -154,6 +154,7 @@ function extractUIOptions(id, options) {
     primaryColor: typeof primaryColor === 'string' ? primaryColor : undefined,
     rememberLastLogin: undefined === options.rememberLastLogin ? true : !!options.rememberLastLogin,
     allowAutocomplete: !!options.allowAutocomplete,
+    allowShowPassword: !!options.allowShowPassword,
     authButtonsTheme: typeof authButtons === 'object' ? authButtons : {}
   });
 }
@@ -185,7 +186,8 @@ export const ui = {
   primaryColor: lock => getUIAttribute(lock, 'primaryColor'),
   authButtonsTheme: lock => getUIAttribute(lock, 'authButtonsTheme'),
   rememberLastLogin: m => tget(m, 'rememberLastLogin', getUIAttribute(m, 'rememberLastLogin')),
-  allowAutocomplete: m => tget(m, 'allowAutocomplete', getUIAttribute(m, 'allowAutocomplete'))
+  allowAutocomplete: m => tget(m, 'allowAutocomplete', getUIAttribute(m, 'allowAutocomplete')),
+  allowShowPassword: m => tget(m, 'allowShowPassword', getUIAttribute(m, 'allowShowPassword'))
 };
 
 const { get: getAuthAttribute } = dataFns(['core', 'auth']);
@@ -579,6 +581,9 @@ export function overrideOptions(m, opts) {
   }
   if (typeof opts.allowAutocomplete === 'boolean') {
     m = tset(m, 'allowAutocomplete', opts.allowAutocomplete);
+  }
+  if (typeof opts.allowShowPassword === 'boolean') {
+    m = tset(m, 'allowShowPassword', opts.allowShowPassword);
   }
 
   return m;

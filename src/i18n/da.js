@@ -112,5 +112,6 @@ export default {
   mfaLoginTitle: '2-Step Verifikation',
   mfaLoginInstructions: 'Indtast venligst bekræftelseskoden genereret af din mobilapplikation.',
   mfaSubmitLabel: 'Log på',
-  mfaCodeErrorHint: 'Brug %d tal'
+  mfaCodeErrorHint: 'Brug %d tal',
+  showPassword: 'Vis adgangskode'
 };

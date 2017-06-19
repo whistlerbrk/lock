@@ -21,7 +21,7 @@ export default class Slider extends React.Component {
         },
         transitionName: this.props.transitionName
       });
-      this.animate = false;
+      this.animate = true;
     } else if (!this.timeout) {
       this.setState({
         children: { current: nextProps.children },

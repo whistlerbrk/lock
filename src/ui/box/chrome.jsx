@@ -48,7 +48,7 @@ SubmitButton.propTypes = {
 };
 
 const MESSAGE_ANIMATION_DURATION = 250;
-const AUXILIARY_ANIMATION_DURATION = 350;
+const AUXILIARY_ANIMATION_DURATION = 0;
 
 export default class Chrome extends React.Component {
   constructor(props) {

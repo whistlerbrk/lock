@@ -48,7 +48,7 @@ SubmitButton.propTypes = {
 };
 
 const MESSAGE_ANIMATION_DURATION = 250;
-const AUXILIARY_ANIMATION_DURATION = 0;
+const AUXILIARY_ANIMATION_DURATION = 350;
 
 export default class Chrome extends React.Component {
   constructor(props) {
@@ -247,7 +247,7 @@ export default class Chrome extends React.Component {
         </ReactCSSTransitionGroup>
         <div style={{ position: 'relative' }}>
           <MultisizeSlide
-            delay={550}
+            delay={1}
             onDidAppear={::this.onDidAppear}
             onDidSlide={::this.onDidSlide}
             onWillSlide={::this.onWillSlide}
